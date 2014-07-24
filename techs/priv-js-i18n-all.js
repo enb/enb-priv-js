@@ -12,10 +12,12 @@
  *
  * **Пример**
  *
- * ```javascript
- *  [ require('enb-priv-js/techs/priv-js-i18n-all'), {
- *      langTargets: ['all'].concat(config.getLanguages()).map(function (lang) {return '?.lang.' + lang + '.js'})
- *  } ]
+ * ```js
+ * nodeConfig.addTech([require('enb-priv-js/techs/priv-js-i18n-all'), {
+ *   langTargets: ['all'].concat(config.getLanguages()).map(function(lang) {
+ *     return '?.lang.' + lang + '.js';
+ *   })
+ * }]
  * ```
  */
 var vow = require('vow');

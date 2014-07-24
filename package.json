@@ -1,33 +1,29 @@
 {
   "name": "enb-priv-js",
-  "version": "1.0.0",
-  "scripts": {
-    "test": "npm run-script jshint && npm run-script check-style",
-    "jshint": "jshint .",
-    "check-style": "jscs -c node_modules/enb-validate-code/jscs.json techs"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/enb-make/enb-priv-js.git"
-  },
+  "version": "2.0.0",
   "author": "Marat Dulin",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/enb-make/enb-priv-js/issues"
-  },
   "homepage": "https://github.com/enb-make/enb-priv-js",
+  "repository": "git://github.com/enb-make/enb-priv-js.git",
+  "bugs": "https://github.com/enb-make/enb-priv-js/issues",
   "peerDependencies": {
-    "enb": ">=0.8.45",
+    "priv-js": "^1.0.0",
+    "enb": ">=0.13.0",
     "enb-borschik": "^1.0.1"
   },
   "devDependencies": {
     "jscs": "~1.2.4",
     "jshint": "~2.4.2",
-    "enb-validate-code": "0.0.1",
-    "enb": ">=0.8.45",
-    "enb-borschik": "^1.0.1"
+    "enb": "^0.13.0",
+    "enb-borschik": "^1.0.1",
+    "enb-validate-code": "0.0.1"
   },
   "dependencies": {
     "vow": "^0.4.3"
+  },
+  "scripts": {
+    "test": "npm run-script jshint && npm run-script check-style",
+    "jshint": "jshint .",
+    "check-style": "jscs -c node_modules/enb-validate-code/jscs.json techs"
   }
 }

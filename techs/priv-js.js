@@ -11,11 +11,11 @@
  * * *String* **bemhtmlTarget** — Имя `bemhtml.js`-таргета. По умолчанию — `?.bemhtml.js`.
  * * *String* **filesTarget** — files-таргет, на основе которого получается список исходных файлов
  *   (его предоставляет технология `files`). По умолчанию — `?.files`.
- * * *String* **sourceSuffixes** — суффиксы файлов, по которым строится `files`-таргет. По умолчанию — 'priv.js'.
+ * * *Array* **sourceSuffixes** — суффиксы файлов, по которым строится `files`-таргет. По умолчанию — ['priv.js'].
  *
  * **Пример**
  *
- * ```javascript
+ * ```js
  * nodeConfig.addTech(require('enb-priv-js/techs/priv-js'));
  * ```
  */
@@ -26,7 +26,7 @@ var BorschikPreprocessor = require('enb-borschik/lib/borschik-preprocessor');
 module.exports = require('enb/lib/build-flow').create()
     .name('priv-js')
     .target('target', '?.priv.js')
-    .useFileList('priv.js')
+    .useFileList(['priv.js'])
     .useSourceText('bemhtmlTarget', '?.bemhtml.js')
     .builder(function (sourceFiles, bemhtml) {
         var _this = this;
