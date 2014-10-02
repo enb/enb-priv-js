@@ -9,16 +9,18 @@
  * * *String* **target** — Результирующий priv.js-файл. По умолчанию — `?.all.priv.js`.
  * * *String* **privJsTarget** — Исходный priv.js-файл. По умолчанию — `?.priv.js`.
  * * *String* **lang** — Язык. Обязательная опция.
- * * *Array* **langTarget** — lang.js-файл конкретного языка. Например, `?.lang.ru.js`.
+ * * *String* **langTarget** — lang.js-файл конкретного языка. Например, `?.lang.ru.js`.
  *   По умолчанию — `?.lang.{lang}.js`.
- * * *Array* **allLangTarget** — lang.all.js-файл. По умолчанию — `?.lang.all.js`.
+ * * *String* **allLangTarget** — lang.all.js-файл. По умолчанию — `?.lang.all.js`.
  *
  * **Пример**
  *
- * ```javascript
- *  [ require('enb-priv-js/techs/priv-js-i18n-all'), {
- *      langTargets: ['all'].concat(config.getLanguages()).map(function (lang) {return '?.lang.' + lang + '.js'})
- *  } ]
+ * ```js
+ * nodeConfig.addTech([ require('enb-priv-js/techs/priv-js-i18n-all'), {
+ *   langTargets: ['all'].concat(config.getLanguages()).map(function(lang) {
+ *     return '?.lang.' + lang + '.js';
+ *   })
+ * }]
  * ```
  */
 module.exports = require('enb/lib/build-flow').create()
