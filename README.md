@@ -28,11 +28,11 @@ nodeConfig.addTech(require('enb-priv-js/techs/priv-js'));
 
 ## priv-js-i18n
 
-Собирает *all.priv.js*-файл из *priv.js* и языковых файлов.
+Собирает *{lang}.priv.js*-файлы из *priv.js* и языковых файлов.
 
 **Опции**
 
-* *String* **target** — Результирующий priv.js-файл. По умолчанию — `?.all.priv.js`.
+* *String* **target** — Результирующий priv.js-файл. По умолчанию — `?.{lang}.priv.js`.
 * *String* **privJsTarget** — Исходный priv.js-файл. По умолчанию — `?.priv.js`.
 * *String* **lang** — Язык. Обязательная опция.
 * *String* **langTarget** — lang.js-файл конкретного языка. Например, `?.lang.ru.js`.
@@ -42,8 +42,8 @@ nodeConfig.addTech(require('enb-priv-js/techs/priv-js'));
 **Пример**
 
 ```js
-nodeConfig.addTech([ require('enb-priv-js/techs/priv-js-i18n-all'), {
-  langTargets: ['all'].concat(config.getLanguages()).map(function(lang) {
+nodeConfig.addTech([ require('enb-priv-js/techs/priv-js-i18n'), {
+  langTarget: ['all'].concat(config.getLanguages()).map(function(lang) {
     return '?.lang.' + lang + '.js';
   })
 }]
