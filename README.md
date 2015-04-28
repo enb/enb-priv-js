@@ -122,6 +122,7 @@ nodeConfig.addTech(require('enb-priv-js/techs/priv-server'));
 * *String* **filesTarget** — files-таргет, на основе которого получается список исходных файлов
   (его предоставляет технология `files`). По умолчанию — `?.files`.
 * *Array* **sourceSuffixes** — суффиксы файлов, по которым строится `files`-таргет. По умолчанию — ['priv.js'].
+* *Boolean* **keepRequires** — отключает вырезание require, позволяет ускорить сборку. По умолчанию — `false`.
 
 **Пример**
 
@@ -140,6 +141,7 @@ nodeConfig.addTech(require('enb-priv-js/techs/priv-server-include'));
 * *String* **filesTarget** — files-таргет, на основе которого получается список исходных файлов 
   (его предоставляет технология `files`). По умолчанию — `?.files`.
 * *Array* **sourceSuffixes** — суффиксы файлов, по которым строится `files`-таргет. По умолчанию — ['priv.js'].
+* *Boolean* **keepRequires** — отключает вырезание require, позволяет ускорить сборку. По умолчанию — `false`.
 
 **Пример**
 

@@ -41,6 +41,7 @@ module.exports = require('enb/lib/build-flow').create()
     .builder(function (privFiles) {
         var node = this.node;
         var dependencies = this._dependencies;
+
         return vow.all([
             vfs.read(this._privFile, 'utf8').then(function (data) {
                 return data;
