@@ -11,6 +11,7 @@
  * * *String* **filesTarget** — files-таргет, на основе которого получается список исходных файлов 
  *   (его предоставляет технология `files`). По умолчанию — `?.files`.
  * * *Array* **sourceSuffixes** — суффиксы файлов, по которым строится `files`-таргет. По умолчанию — ['priv.js'].
+ * * *Boolean* **keepRequires** — отключает вырезание require, позволяет ускорить сборку. По умолчанию — `false`.
  *
  * **Пример**
  *
@@ -28,6 +29,7 @@ module.exports = require('enb/lib/build-flow').create()
     .target('target', '?.priv.client.js')
     .defineOption('privFile', '')
     .defineOption('dependencies', {})
+    .defineOption('keepRequires', false)
     .useFileList(['priv.js'])
     .needRebuild(function (cache) {
         this._privFile = this._privFile ?
@@ -41,6 +43,8 @@ module.exports = require('enb/lib/build-flow').create()
     .builder(function (privFiles) {
         var node = this.node;
         var dependencies = this._dependencies;
+        var keepRequires = this._keepRequires;
+
         return Vow.all([
             vowFs.read(this._privFile, 'utf8').then(function (data) {
                 return data;
@@ -53,7 +57,7 @@ module.exports = require('enb/lib/build-flow').create()
                      */
                     return [
                         '// begin: ' + relPath,
-                        privClientProcessor.process(data),
+                        privClientProcessor.process(data, keepRequires),
                         '// end: ' + relPath
                     ].join('\n');
                 });
