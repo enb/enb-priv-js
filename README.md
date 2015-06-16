@@ -92,6 +92,28 @@ nodeConfig.addTech([require('enb-priv-js/techs/pub-js-i18n'), {
 }]
 ```
 
+## pub-js-only-i18n
+
+Собирает *{lang}.pub.js*-файл из *js* и языковых файлов.
+
+**Опции**
+
+* *String* **target** — Результирующий `pub.js`-файл. По умолчанию — `?.all.pub.js`.
+* *String* **jsTarget** — Исходный `js`-файл. По умолчанию — `?.js`.
+* *String* **lang** — Язык. Обязательная опция.
+* *String* **langTarget** — `lang.js`-файл конкретного языка. Например, `?.lang.ru.js`.
+  По умолчанию — `?.lang.{lang}.js`.
+* *String* **allLangTarget** — `lang.all.js`-файл. По умолчанию — `?.lang.all.js`.
+
+**Пример**
+
+```js
+nodeConfig.addTech([require('enb-priv-js/techs/pub-js-only-i18n'), {
+  target: '?.{lang}.js',
+  lang: '{lang}'
+}]
+```
+
 ## priv-server
 
 Склеивает *priv*-файлы по deps'ам с помощью набора `require` в виде `?.priv.js`.
