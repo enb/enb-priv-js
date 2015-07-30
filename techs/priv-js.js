@@ -21,7 +21,7 @@
  */
 var vow = require('vow');
 var vowFs = require('enb/lib/fs/async-fs');
-var BorschikPreprocessor = require('enb-borschik/lib/borschik-preprocessor');
+var borschik = require('borschik');
 
 module.exports = require('enb/lib/build-flow').create()
     .name('priv-js')
@@ -31,11 +31,16 @@ module.exports = require('enb/lib/build-flow').create()
     .builder(function (sourceFiles, bemhtml) {
         var _this = this;
         var target = this._target;
-        var jsBorschikPreprocessor = new BorschikPreprocessor();
         var node = this.node;
         return vow.all(sourceFiles.map(function (file) {
             return _this.node.createTmpFileForTarget(target).then(function (tmpfile) {
-                return jsBorschikPreprocessor.preprocessFile(file.fullname, tmpfile, false, false).then(function () {
+                var opts = {
+                    input: file.fullname,
+                    output: tmpfile,
+                    freeze: false,
+                    minimize: false
+                };
+                return vow.when(borschik.api(opts)).then(function () {
                     return vowFs.read(tmpfile, 'utf8').then(function (data) {
                         var filename = node.relativePath(file.fullname);
                         vowFs.remove(tmpfile);
