@@ -1,6 +1,11 @@
 История изменений
 =================
 
+2.3.1
+-----
+
+* Вместо модуля `enb-borschik` теперь используется `borschik` ([#8]).
+
 2.3.0
 -----
 
@@ -11,5 +16,6 @@
 
 * Для технологий `priv-client` и `priv-server` добавлена опция `keepRequires`, которая отключает вырезание require, что позволяет ускорить сборку ([#7]).
 
+[#8]: https://github.com/enb-make/enb-priv-js/pull/8
 [#7]: https://github.com/enb-make/enb-priv-js/pull/7
 [#5]: https://github.com/enb-make/enb-priv-js/pull/5
