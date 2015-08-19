@@ -18,10 +18,10 @@
  * nodeConfig.addTech(require('enb-priv/techs/priv-client-module'));
  * ```
  */
-var path = require('path');
-var vow = require('vow');
-var vfs = require('enb/lib/fs/async-fs');
-var privClientProcessor = require('../lib/priv-client-processor');
+var path = require('path'),
+    vow = require('vow'),
+    vfs = require('enb/lib/fs/async-fs'),
+    privClientProcessor = require('../lib/priv-client-processor');
 
 module.exports = require('enb/lib/build-flow').create()
     .name('priv-client-module')
@@ -39,8 +39,8 @@ module.exports = require('enb/lib/build-flow').create()
         cache.cacheFileInfo('priv-file', this._privFile);
     })
     .builder(function (privFiles) {
-        var node = this.node;
-        var dependencies = this._dependencies;
+        var node = this.node,
+            dependencies = this._dependencies;
 
         return vow.all([
             vfs.read(this._privFile, 'utf8').then(function (data) {

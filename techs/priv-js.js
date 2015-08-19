@@ -19,9 +19,9 @@
  * nodeConfig.addTech(require('enb-priv-js/techs/priv-js'));
  * ```
  */
-var vow = require('vow');
-var vowFs = require('enb/lib/fs/async-fs');
-var borschik = require('borschik');
+var vow = require('vow'),
+    vowFs = require('enb/lib/fs/async-fs'),
+    borschik = require('borschik');
 
 module.exports = require('enb/lib/build-flow').create()
     .name('priv-js')
@@ -29,9 +29,9 @@ module.exports = require('enb/lib/build-flow').create()
     .useFileList(['priv.js'])
     .useSourceText('bemhtmlTarget', '?.bemhtml.js')
     .builder(function (sourceFiles, bemhtml) {
-        var _this = this;
-        var target = this._target;
-        var node = this.node;
+        var _this = this,
+            target = this._target,
+            node = this.node;
         return vow.all(sourceFiles.map(function (file) {
             return _this.node.createTmpFileForTarget(target).then(function (tmpfile) {
                 var opts = {
@@ -44,8 +44,8 @@ module.exports = require('enb/lib/build-flow').create()
                     return vowFs.read(tmpfile, 'utf8').then(function (data) {
                         var filename = node.relativePath(file.fullname);
                         vowFs.remove(tmpfile);
-                        var pre = '/* ' + filename + ': begin */\n';
-                        var post = '\n/* ' + filename + ': end */';
+                        var pre = '/* ' + filename + ': begin */\n',
+                            post = '\n/* ' + filename + ': end */';
                         return pre + data + post;
                     });
                 });
