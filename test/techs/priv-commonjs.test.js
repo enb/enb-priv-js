@@ -7,7 +7,7 @@ var EOL = require('os').EOL,
     MockNode = require('mock-enb/lib/mock-node'),
     Tech = require('../../techs/priv-commonjs');
 
-describe('priv-server', function () {
+describe('priv-commonjs', function () {
     var count, privJSCore, fakePrivJSCore, block1, block2, targetPath;
 
     before(function () {
