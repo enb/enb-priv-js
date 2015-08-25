@@ -61,10 +61,7 @@ module.exports = require('enb/lib/build-flow').create()
             .then(function (sources) {
                 return this._compile(sources);
             }, this);
-            // .then(function (result) {
-            //    console.log(result);
-            //    return result;
-            // });
+
     })
     .methods(/** @lends PrivBundleTech.prototype */{
         /**

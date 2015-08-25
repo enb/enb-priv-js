@@ -1,3 +1,4 @@
+/*
 var EOL = require('os').EOL,
     fs = require('fs'),
     path = require('path'),
@@ -100,4 +101,5 @@ function runTest(testContent, options, template, lib) {
             return runServer(3000);
         });
 }
+*/
 
