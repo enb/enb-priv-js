@@ -13,7 +13,7 @@ var EOL = require('os').EOL,
     block1 = fs.readFileSync('./test/fixtures/block1.priv.js'),
     block2 = fs.readFileSync('./test/fixtures/block2.priv.js');
 
-describe('browser --global', function () {
+describe('priv-bundle browser --global', function () {
     afterEach(function () {
         mock.restore();
     });
