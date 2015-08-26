@@ -12,7 +12,7 @@ var vow = require('vow'),
  * Use in browsers and on server side (Node.js).<br/><br/>
  *
  * The compiled Priv module supports CommonJS and YModules. If there is no any modular system in the runtime,
- * the module will be provided as global variable `Blocks`.<br/><br/>
+ * the module will be provided as global variable `blocks`.<br/><br/>
  *
  * Important: do not use `require` in templates.
  *
@@ -20,8 +20,8 @@ var vow = require('vow'),
  * @param {String}      [options.target='?.priv.js']        Path to a target with compiled file.
  * @param {String}      [options.filesTarget='?.files']     Path to a target with FileList.
  * @param {String[]}    [options.sourceSuffixes='priv.js']  Files with specified suffixes involved in the assembly.
- * @param {String}      [options.coreFileName]              Path to file with BH core.
- * @param {Object}      [options.requires]                  Names for dependencies to `Blocks.lib.name`.
+ * @param {String}      [options.coreFileName]              Path to file with Priv core.
+ * @param {Object}      [options.requires]                  Names for dependencies to `blocks.lib.name`.
  *
  * @example
  * var PrivBundleTech = require('enb-priv-js/techs/priv-bundle'),

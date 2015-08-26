@@ -45,7 +45,7 @@ describe('priv-commonjs', function () {
     });
 
     describe('custom Priv', function () {
-        it('must use custom Priv core', function () {
+        it('must use custom Priv core file', function () {
             return build({
                     'fake.priv.js': fakePrivJSCore,
                     blocks: {
