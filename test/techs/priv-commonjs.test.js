@@ -13,8 +13,16 @@ describe('priv-commonjs', function () {
     before(function () {
         privJSCore = fs.readFileSync(require.resolve('priv-js/lib/priv.js'));
         fakePrivJSCore = fs.readFileSync('./test/fixtures/fake.priv.js');
-        block1 = fs.readFileSync('./test/fixtures/block1.priv.js');
-        block2 = fs.readFileSync('./test/fixtures/block2.priv.js');
+        block1 = [
+            'module.exports = function (blocks) {',
+            '    blocks.declare("block1", function () { return 1; });',
+            '};'
+        ].join(EOL);
+        block2 = [
+            'module.exports = function (blocks) {',
+            '    blocks.declare("block2", function () { return 2; });',
+            '};'
+        ].join(EOL);
         targetPath = path.resolve('./bundle/bundle.priv.js');
         count = 0;
     });
