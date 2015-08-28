@@ -7,14 +7,22 @@ var EOL = require('os').EOL,
     MockNode = require('mock-enb/lib/mock-node'),
     Tech = require('../../techs/priv-commonjs');
 
-describe('priv-server', function () {
+describe('priv-commonjs', function () {
     var count, privJSCore, fakePrivJSCore, block1, block2, targetPath;
 
     before(function () {
         privJSCore = fs.readFileSync(require.resolve('priv-js/lib/priv.js'));
         fakePrivJSCore = fs.readFileSync('./test/fixtures/fake.priv.js');
-        block1 = fs.readFileSync('./test/fixtures/block1.priv.js');
-        block2 = fs.readFileSync('./test/fixtures/block2.priv.js');
+        block1 = [
+            'module.exports = function (blocks) {',
+            '    blocks.declare("block1", function () { return 1; });',
+            '};'
+        ].join(EOL);
+        block2 = [
+            'module.exports = function (blocks) {',
+            '    blocks.declare("block2", function () { return 2; });',
+            '};'
+        ].join(EOL);
         targetPath = path.resolve('./bundle/bundle.priv.js');
         count = 0;
     });
@@ -37,7 +45,7 @@ describe('priv-server', function () {
     });
 
     describe('custom Priv', function () {
-        it('must use custom Priv core', function () {
+        it('must use custom Priv core file', function () {
             return build({
                     'fake.priv.js': fakePrivJSCore,
                     blocks: {
