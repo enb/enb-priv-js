@@ -1,6 +1,19 @@
 История изменений
 =================
 
+3.x
+-----
+
+* Удалена технология priv-js-i18n-all.js
+* Удалена технология priv-js-i18n.js
+* Удалена технология pub-js-i18n.js
+* Удалена технология pub-js-only-i18n.js
+* Технология priv-server.js была переименована в priv-commonjs
+* Технологии priv-server-include.js, priv-client.js, priv-client-module.js объеденены в технологию priv-bundle
+* Реализован механизм подключения зависимостей аналогичный тому, который используется в пакетах enb-bh, enb-bemxjst, enb-xjst
+* Для технологий priv-commonjs и priv-bundle написаны тесты
+* Удалена поддержка опции keepRequires.
+
 2.3.1
 -----
 
