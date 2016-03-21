@@ -1,4 +1,4 @@
-# enb-priv-js [![Build Status](https://travis-ci.org/enb-make/enb-priv-js.png?branch=master)](https://travis-ci.org/enb-make/enb-priv-js)
+# enb-priv-js [![Build Status](https://travis-ci.org/enb/enb-priv-js.png?branch=master)](https://travis-ci.org/enb/enb-priv-js)
 
 Предоставляет технологии по работе с форматом `priv.js`.
 
